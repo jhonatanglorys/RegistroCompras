@@ -1,0 +1,9 @@
+<h3 class="text-center">Productos</h3>
+<table class="table table-sm table-hover">
+  <tr *ngFor="let producto of productList">
+    <td>{{producto.codigo}}</td>
+    <td>{{producto.producto}}</td>
+    <td>{{producto.valorunitario}}</td>
+    <td>{{producto.iva}}</td>
+  </tr>
+</table>

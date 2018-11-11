@@ -1,0 +1,19 @@
+<form #compraForm="ngForm" (ngSubmit)="onSubmit(compraForm)">
+  <input type="hidden" class="form-control" name="$key" [(ngModel)]="productoService.selectedProduct.$key" placeholder="">
+  <div class="form-group">
+    <input type="text" name="codigo" #codigo="ngModel" [(ngModel)]="productoService.selectedProduct.codigo" class="form-control" placeholder="Código">
+  </div>
+  <div class="form-group">
+    <input type="text" name="producto" #producto="ngModel" [(ngModel)]="productoService.selectedProduct.producto" placeholder="Producto" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" name="valorunitario" #valorunitario="ngModel" [(ngModel)]="productoService.selectedProduct.valorunitario" placeholder="Valor Unitario" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" name="iva" #iva="ngModel" [(ngModel)]="productoService.selectedProduct.iva" class="form-control">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!compraForm.valid">Submit</button>
+    <button class="btn btn-default" type="reset" (click)="resetForm(compraForm)">Reset</button>
+  </div>
+</form>

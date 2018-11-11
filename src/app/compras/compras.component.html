@@ -1,0 +1,141 @@
+<div class="text-center">
+  <h2 class="jumbotron">Registro de compras</h2>
+</div>
+  
+    <form #compraForm="ngForm" (ngSubmit)="onSubmit(compraForm)">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="establecimiento">Establecimiento</label>
+          <input type="text" class="form-control" name="establecimiento" placeholder="Almacenes SAS" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="nit">Nit</label>
+          <input type="text" class="form-control" name="nit" placeholder="123456789" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="codigoproducto">Código producto</label>
+          <input type="text" class="form-control" name="codigoproducto" placeholder="Código producto">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="descripcion">Descripción</label>
+          <input type="text" class="form-control" name="descripcion" placeholder="Descripción">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="valorunitario">Valor unitario</label>
+          <input type="text" class="form-control" name="valorunitario" placeholder="Valor unitario">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="cantidad">Cantidad</label>
+          <input type="text" class="form-control" name="cantidad" placeholder="Cantidad">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="subtotalproducto">Subtotal</label>
+          <input type="text" class="form-control" name="subtotalproducto" placeholder="Subtotal">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="subtotal">Subtotal</label>
+          <input type="text" class="form-control" name="subtotal" placeholder="Subtotal">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="total">Total</label>
+          <input type="text" class="form-control" name="total" placeholder="Total">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="efectivo">Efectivo</label>
+          <input type="text" class="form-control" name="efectivo" placeholder="Efectivo">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="ahorro">Ahorro</label>
+          <input type="text" class="form-control" name="ahorro" placeholder="Ahorro">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="valorpagado">Valor pagado</label>
+          <input type="text" class="form-control" name="valorpagado" placeholder="Valor pagado">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="cambio">Cambio</label>
+          <input type="text" class="form-control" name="cambio" placeholder="Cambio">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="articuloscomprados">Artículos comprados</label>
+          <input type="text" class="form-control" name="articuloscomprados" placeholder="Artículos comprados">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="ivaporproducto">IVA por producto</label>
+          <input type="text" class="form-control" name="ivaporproducto" placeholder="IVA por producto">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="tarifaporiva">Tarifa por IVA</label>
+          <input type="text" class="form-control" name="tarifaporiva" placeholder="Tarifa por IVA">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="base5">Base IVA 5%</label>
+          <input type="text" class="form-control" name="base5" placeholder="Base IVA 5%">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="base19">Base IVA 19%</label>
+          <input type="text" class="form-control" name="base19" placeholder="Base IVA 19%">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="valorpagado">Valor pagado IVA</label>
+          <input type="text" class="form-control" name="valorpagado" placeholder="Valor pagado IVA">
+        </div>
+      </div>
+      <div class="form-row">
+        <h3>Gracias por su compra</h3>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="numerofactura">Número factura</label>
+          <input type="text" class="form-control" name="numerofactura" placeholder="Número factura">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="registrodian">Registro DIAN</label>
+          <input type="text" class="form-control" name="registrodian" placeholder="Registro DIAN" value="ANTXC0000000000012365410">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="fecha">Fecha</label>
+          <input type="text" class="form-control" name="fecha" placeholder="Fecha">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="hora">Hora</label>
+          <input type="text" class="form-control" name="hora" placeholder="Hora">
+        </div>
+        <div class="form-group col-md-2">
+          <label for=""></label>
+          <input type="text" class="form-control" name="cajero" placeholder="Cajero">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input class="btn btn-primary" type="submit" value="Guardar">
+        </div>
+        <div class="form-group col-md-6">
+            <input class="btn btn-primary" type="reset" value="Cancelar">
+          </div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-md-6">
+        <app-compra></app-compra>
+      </div>
+      <div class="col-md-6">
+        <app-lista-compras></app-lista-compras>
+      </div>
+    </div>
+  
