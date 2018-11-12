@@ -2,7 +2,7 @@
   <h2 class="jumbotron">Registro de compras</h2>
 </div>
   
-    <form #compraForm="ngForm" (ngSubmit)="onSubmit(compraForm)">
+    <form #compraForm="ngForm" ng-submit="onSubmit(compraForm)">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="establecimiento">Establecimiento</label>
@@ -13,26 +13,14 @@
           <input type="text" class="form-control" name="nit" placeholder="123456789" disabled>
         </div>
       </div>
+      <div id="listaProductos">
+      
+    </div>
       <div class="form-row">
-        <div class="form-group col-md-2">
-          <label for="codigoproducto">Código producto</label>
-          <input type="text" class="form-control" name="codigoproducto" placeholder="Código producto">
-        </div>
-        <div class="form-group col-md-2">
-          <label for="descripcion">Descripción</label>
-          <input type="text" class="form-control" name="descripcion" placeholder="Descripción">
-        </div>
-        <div class="form-group col-md-2">
-          <label for="valorunitario">Valor unitario</label>
-          <input type="text" class="form-control" name="valorunitario" placeholder="Valor unitario">
-        </div>
-        <div class="form-group col-md-2">
-          <label for="cantidad">Cantidad</label>
-          <input type="text" class="form-control" name="cantidad" placeholder="Cantidad">
-        </div>
-        <div class="form-group col-md-2">
-          <label for="subtotalproducto">Subtotal</label>
-          <input type="text" class="form-control" name="subtotalproducto" placeholder="Subtotal">
+        <div class="col-md-3">
+          <div class="form-group col-md-2">
+            <button class="btn btn-default" (click)="agregarProducto()" >Agregar producto</button>
+          </div>
         </div>
       </div>
       <div class="form-row">
@@ -64,7 +52,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="articuloscomprados">Artículos comprados</label>
-          <input type="text" class="form-control" name="articuloscomprados" placeholder="Artículos comprados">
+          <input type="text" [ngModel]="numeroProductos" class="form-control" name="articuloscomprados" placeholder="Artículos comprados">
         </div>
       </div>
       <div class="form-row">

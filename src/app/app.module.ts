@@ -7,8 +7,11 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { ComprasComponent } from './compras/compras.component';
 import { CompraComponent } from './compras/compra/compra.component';
 import { ListaComprasComponent } from './compras/lista-compras/lista-compras.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import { ToastrModule} from 'ngx-toastr'; 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatFormFieldModule, MatInputModule, MatOptionModule} from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,12 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
-    AngularFireDatabaseModule, FormsModule,//ToastrModule.forRoot()
+    AngularFireDatabaseModule, FormsModule,ReactiveFormsModule,//ToastrModule.forRoot()
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatAutocompleteModule
   ],
   
   bootstrap: [AppComponent]
