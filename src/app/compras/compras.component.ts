@@ -27,7 +27,9 @@ export class ComprasComponent implements OnInit {
       });
     });
   }
-
+  cambio(identificador:string, evn:Event){
+    console.log(identificador);
+  }
 
   agregarProducto(){
     
@@ -60,14 +62,27 @@ export class ComprasComponent implements OnInit {
      + '</select>'
     + '</div>'
     + '<div class="form-group col-md-2">'
-    + '<label for="valorunitario">Cantidad</label>'
-    + '<input type="number" class="form-control" min="1" name="cantidad" placeholder="Cantidad" required>'
+    + '<label for="cantidad">Cantidad</label>'
+    + '<input type="number" id ="cantidad'+ this.numeroProductos+' "class="form-control" min="1" name="cantidad" placeholder="Cantidad" required>'
     + ' </div>'
-    
+    + '<div class="form-group col-md-2">'
+    + '<label for="valorunitario">Valor Unitario</label>'
+    + '<input type="number" id="valorunitario'+this.numeroProductos +'" class="form-control" min="1" name="valorunitario" placeholder="Valor Unitario">'
+    + ' </div>'
+    + '<div class="form-group col-md-2">'
+    + '<label for="iva">IVA</label>'
+    + '<input type="number" id="iva'+ this.numeroProductos+'" class="form-control" min="1" name="iva" placeholder="IVA">'
+    + ' </div>'
+
     + '</div>';
     while(nuevoProducto.firstChild){
       contenedorProductos.appendChild(nuevoProducto.firstChild);
     }
     this.numeroProductos++;
+    var selectorProducto = document.getElementById('producto' + this.numeroProductos);
+    selectorProducto.onchange = function(identificador:string){
+      
+    };
   }
+  
 }
