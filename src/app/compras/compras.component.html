@@ -14,12 +14,25 @@
         </div>
       </div>
       <div id="listaProductos">
-      
+        <table class="table table-sm table-hover">
+          <tr>
+            <td>Descripción</td>
+            <td>Valor Unitario</td>
+            <td>Cantidad</td>
+            <td>% IVA</td>
+          </tr>
+          <tr *ngFor="let producto of productList">
+            <td><span id="nombreproducto{{producto.codigo}}">{{producto.producto}} </span></td>
+            <td> <input type="text" class="form-control" id="valorunitario{{producto.codigo}}" [value]="producto.valorunitario" disabled>  </td>
+            <td> <input type="text" class="form-control" id="totalproducto{{producto.codigo}}" value="0"></td>
+            <td><input type="text" class="form-control" id="ivaproducto{{producto.codigo}}" [value]="producto.iva" disabled></td>
+          </tr>
+        </table>
     </div>
       <div class="form-row">
         <div class="col-md-3">
           <div class="form-group col-md-2">
-            <button class="btn btn-default" (click)="agregarProducto()" >Agregar producto</button>
+            <button (click)="calcular()" class="btn btn-default">Calcular</button>
           </div>
         </div>
       </div>
@@ -30,7 +43,7 @@
         </div>
         <div class="form-group col-md-3">
           <label for="total">Total</label>
-          <input type="text" class="form-control" name="total" placeholder="Total">
+          <input type="text" class="form-control" name="total" [placeholder]="total" disabled>
         </div>
       </div>
       <div class="form-row">
@@ -44,7 +57,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="valorpagado">Valor pagado</label>
-          <input type="text" class="form-control" name="valorpagado" placeholder="Valor pagado">
+          <input type="text" class="form-control" name="valorpagado" [placeholder]="total" disabled>
         </div>
         <div class="form-group col-md-2">
           <label for="cambio">Cambio</label>
@@ -52,7 +65,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="articuloscomprados">Artículos comprados</label>
-          <input type="text" [ngModel]="numeroProductos" class="form-control" name="articuloscomprados" placeholder="Artículos comprados">
+          <input type="text" [ngModel]="productosComprados" class="form-control" name="articuloscomprados" placeholder="Artículos comprados" disabled>
         </div>
       </div>
       <div class="form-row">
@@ -97,11 +110,11 @@
         </div>
         <div class="form-group col-md-2">
           <label for="fecha">Fecha</label>
-          <input type="text" class="form-control" name="fecha" placeholder="Fecha">
+          <input type="text" class="form-control" name="fecha" [placeholder]="fecha| date">
         </div>
         <div class="form-group col-md-2">
           <label for="hora">Hora</label>
-          <input type="text" class="form-control" name="hora" placeholder="Hora">
+          <input type="text" class="form-control" name="hora" [placeholder]="fecha| date:'h:mm a z'">
         </div>
         <div class="form-group col-md-2">
           <label for=""></label>

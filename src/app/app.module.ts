@@ -12,14 +12,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule, MatOptionModule} from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ItemComponent } from './compras/item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComprasComponent,
     CompraComponent,
-    ListaComprasComponent
+    ListaComprasComponent,
+    ItemComponent
   ],
+  entryComponents:[ItemComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
