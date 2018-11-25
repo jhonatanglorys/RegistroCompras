@@ -24,7 +24,7 @@
           <tr *ngFor="let producto of productList">
             <td><span id="nombreproducto{{producto.codigo}}">{{producto.producto}} </span></td>
             <td> <input type="text" class="form-control" id="valorunitario{{producto.codigo}}" [value]="producto.valorunitario" disabled>  </td>
-            <td> <input type="text" class="form-control" id="totalproducto{{producto.codigo}}" value="0"></td>
+            <td> <input type="number" class="form-control" id="totalproducto{{producto.codigo}}" value="0" min="0"></td>
             <td><input type="text" class="form-control" id="ivaproducto{{producto.codigo}}" [value]="producto.iva" disabled></td>
           </tr>
         </table>
@@ -39,7 +39,7 @@
       <div class="form-row">
         <div class="form-group col-md-3">
           <label for="subtotal">Subtotal</label>
-          <input type="text" class="form-control" name="subtotal" placeholder="Subtotal">
+          <input type="text" class="form-control" name="subtotal" [placeholder]="subtotalGlobal" disabled>
         </div>
         <div class="form-group col-md-3">
           <label for="total">Total</label>
@@ -49,11 +49,11 @@
       <div class="form-row">
         <div class="form-group col-md-2">
           <label for="efectivo">Efectivo</label>
-          <input type="text" class="form-control" name="efectivo" placeholder="Efectivo">
+          <input type="text" class="form-control" name="efectivo" placeholder="Efectivo" (input)="calcularPago($event)">
         </div>
         <div class="form-group col-md-2">
           <label for="ahorro">Ahorro</label>
-          <input type="text" class="form-control" name="ahorro" placeholder="Ahorro">
+          <input type="text" class="form-control" name="ahorro" placeholder="Ahorro" value="0" disabled>
         </div>
         <div class="form-group col-md-2">
           <label for="valorpagado">Valor pagado</label>
@@ -61,7 +61,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="cambio">Cambio</label>
-          <input type="text" class="form-control" name="cambio" placeholder="Cambio">
+          <input type="text" class="form-control" name="cambio" [placeholder]="cambio" disabled>
         </div>
         <div class="form-group col-md-2">
           <label for="articuloscomprados">Artículos comprados</label>
@@ -83,19 +83,46 @@
       <div class="form-row">
         <div class="form-group col-md-3">
           <label for="base5">Base IVA 5%</label>
-          <input type="text" class="form-control" name="base5" placeholder="Base IVA 5%">
+          <input type="text" class="form-control" name="base5" [placeholder]="ivaAcumulado5" disabled>
         </div>
         <div class="form-group col-md-3">
           <label for="base19">Base IVA 19%</label>
-          <input type="text" class="form-control" name="base19" placeholder="Base IVA 19%">
+          <input type="text" class="form-control" name="base19" [placeholder]="ivaAcumulado19" disabled>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-3">
           <label for="valorpagado">Valor pagado IVA</label>
-          <input type="text" class="form-control" name="valorpagado" placeholder="Valor pagado IVA">
+          <input type="text" class="form-control" name="valorpagado" [placeholder]="ivaTotal" disabled>
         </div>
       </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <h3>Productos Comprados</h3>
+          <table class="table table-sm table-hover">
+            <tr>
+              <td>Producto</td>
+              <td>Valor Unitario</td>
+              <td>Cantidad</td>
+              <td>% IVA</td>
+              <td>Total IVA</td>
+              <td>Subtotal</td>
+              <td>Total</td>
+            </tr>
+            <tr *ngFor="let productoComprado of listaProductosComprados">
+              <td>{{productoComprado.nombreProd}}</td>
+              <td>{{productoComprado.vUnitario}}</td>
+              <td>{{productoComprado.cantidadComprada}}</td>
+              <td>{{productoComprado.ivaDelProductoComprado}}</td>
+              <td>{{productoComprado.ivaDeLosProductosComprados}}</td>
+              <td>{{productoComprado.subtotalDeLaCompra}}</td>
+              <td>{{productoComprado.totalCompra}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
       <div class="form-row">
         <h3>Gracias por su compra</h3>
       </div>
@@ -106,15 +133,15 @@
         </div>
         <div class="form-group col-md-2">
           <label for="registrodian">Registro DIAN</label>
-          <input type="text" class="form-control" name="registrodian" placeholder="Registro DIAN" value="ANTXC0000000000012365410">
+          <input type="text" class="form-control" name="registrodian" placeholder="Registro DIAN" value="ANTXC0000000000012365410" disabled>
         </div>
         <div class="form-group col-md-2">
           <label for="fecha">Fecha</label>
-          <input type="text" class="form-control" name="fecha" [placeholder]="fecha| date">
+          <input type="text" class="form-control" name="fecha" [placeholder]="fecha| date" disabled>
         </div>
         <div class="form-group col-md-2">
           <label for="hora">Hora</label>
-          <input type="text" class="form-control" name="hora" [placeholder]="fecha| date:'h:mm a z'">
+          <input type="text" class="form-control" name="hora" [placeholder]="fecha| date:'h:mm a z'" disabled>
         </div>
         <div class="form-group col-md-2">
           <label for=""></label>
